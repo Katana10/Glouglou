@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression effectuée{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+
+<div class="example-wrapper">
+    <h1>L'élément a bien été supprimé</h1>
+    <a href="{{ path('back_profondeur_show_all') }}"><button type="button" class="btn btn-primary">Retour à la liste</button></a>
+      
+    
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

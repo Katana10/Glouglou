@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hello Tempsontroller!{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<a href="{{ path('back_table_plongee_show_all') }}"><button type="button" class="btn btn-primary">Retour à la liste</button></a>
+{% include 'footer.html' %}
+{% endblock %}

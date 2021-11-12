@@ -1,0 +1,27 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+
+
+.page-holder {
+min-height: 80vh;
+}
+  
+.bg-cover {
+background-size: cover !important;
+}
+
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 60%;
+color: white;
+text-align: center;
+}

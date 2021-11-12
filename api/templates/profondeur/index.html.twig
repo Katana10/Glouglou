@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualisation des profondeurs{% endblock %}
+
+{% block body %}
+
+{% include 'header.html' %}
+
+
+<div class="example-wrapper">
+    
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Profondeur</th>
+                <th scope="col">Table de plongée associée</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for profondeur in profondeurs %}
+                <tr>
+                    <td>{{profondeur.id}}</td>
+                    <td>{{profondeur.profondeur}}</td>
+                    <td>{{profondeur.tableassociee.nom}}</td>
+                    <a href="{{ path('back_profondeur_edit',{'id': profondeur.id} ) }}">Modif</a>
+                    <a href="{{ path('back_profondeur_delete',{'id': profondeur.id} ) }}">Delete</a>
+                    </td>
+                <tr>
+            {% endfor %}
+        </tbody> 
+    </table>      
+    <a href="{{ path('back_profondeur_create') }}"><button type="button" class="btn btn-primary btn-lg btn-block">Add</button></a>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

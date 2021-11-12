@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualisation des tables de Plongées{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+
+<div class="example-wrapper">
+    
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for tablePlongee in tablePlongees %}
+                <tr>
+                    <td>{{tablePlongee.id}}</td>
+                    <td>{{tablePlongee.nom}}</td>
+                    <td>
+                    <a href="{{ path('back_table_plongee_edit',{'id': tablePlongee.id} ) }}">Modif</a>
+                    <a href="{{ path('back_table_plongee_delete',{'id': tablePlongee.id} ) }}">Delete</a>
+                    </td>
+                <tr>
+            {% endfor %}
+        </tbody> 
+    </table>
+    <a href="{{ path('back_table_plongee_create') }}"><button type="button" class="btn btn-primary btn-lg btn-block">Add</button></a>      
+
+</div>
+{% include 'footer.html' %}
+{% endblock %}

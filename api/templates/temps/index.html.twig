@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualisation des temps{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+
+<div class="example-wrapper">
+    
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Temps (en min)</th>
+                <th scope="col">Palier 15</th>
+                <th scope="col">Palier 12</th>
+                <th scope="col">Palier 9</th>
+                <th scope="col">Palier 6</th>
+                <th scope="col">Palier 3</th>
+                <th scope="col">Est à ... m</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for temps in tempss %}
+                <tr>
+                    <td>{{temps.id}}</td>
+                    <td>{{temps.temps}}</td>
+                    <td>{{temps.palier15}}</td>
+                    <td>{{temps.palier12}}</td>
+                    <td>{{temps.palier9}}</td>
+                    <td>{{temps.palier6}}</td>
+                    <td>{{temps.palier3}}</td>
+                    <td>{{temps.ESTA.profondeur}}</td>
+                    <td>
+                    <a href="{{ path('back_temps_edit',{'id': temps.id} ) }}">Modif</a>
+                    <a href="{{ path('back_temps_delete',{'id': temps.id} ) }}">Delete</a>
+                    </td>
+                    
+                <tr>
+            {% endfor %}
+        </tbody> 
+    </table>      
+    <a href="{{ path('back_temps_create') }}"><button type="button" class="btn btn-primary btn-lg btn-block">Add</button></a>
+</div>
+{% include 'footer.html' %}
+{% endblock %}
